@@ -14,26 +14,26 @@ def convert():
                 temp_k = (temp_f - 32) * 5 / 9 + 273.15
                 result_label.config(text=f"{temp_f:.2f}°F = {temp_k:.2f} K")
             else:
-                result_label.config(text="Please select a valid unit.")
+                result_label.config(text="Пожалуйста используйте валидную температуру")
         except ValueError:
-            result_label.config(text="Invalid input! Please enter a number.")
+            result_label.config(text="Неверный ввод. Введите число")
     else:
-        result_label.config(text="Please enter a temperature.")
+        result_label.config(text="Введите температуру")
 
 root = Tk()
-root.title("Temperature Converter")
+root.title("Преобразователь температур")
 root.geometry("400x300")
 
-Label(root, text="Enter a Fahrenheit temperature:").pack(pady=5)
+Label(root, text="Введите температуру в Фаренгейтах").pack(pady=5)
 entry = Entry(root)
 entry.pack(pady=5)
 
 unit_var = StringVar(value="C")
-Label(root, text="Select target unit:").pack(pady=5)
-Radiobutton(root, text="Celsius (°C)", variable=unit_var, value="C").pack()
-Radiobutton(root, text="Kelvin (K)", variable=unit_var, value="K").pack()
+Label(root, text="Выберите нужную температуру:").pack(pady=5)
+Radiobutton(root, text="Цельсии (°C)", variable=unit_var, value="C").pack()
+Radiobutton(root, text="Кельвины (K)", variable=unit_var, value="K").pack()
 
-Button(root, text="Convert", command=convert).pack(pady=10)
+Button(root, text="Преобразовать", command=convert).pack(pady=10)
 
 result_label = Label(root, text="", font=("Arial", 14))
 result_label.pack(pady=10)
