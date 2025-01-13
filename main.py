@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from tkinter import *
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def convert():
+    x = entry.get()
+    if x != "":
+        cel=int(x)
+        far=(9/5*(cel))+32
+        print(far)
 
+root=Tk()
+root.title("Some GUI")
+root.geometry("400x700")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+Button(root, text="Total", command=convert).pack()
+entry = Entry(root)
+entry.pack()
+Label(root,text="Enter a Celcius temperature.").pack()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+root.mainloop()
